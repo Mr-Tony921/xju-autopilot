@@ -1,0 +1,12 @@
+<library path="rviz_xju_plugins">
+
+  <class
+    name="rviz_xju_plugins/PoseGrabber"
+    type="xju::simulator::GoalTool"
+    base_class_type="rviz_common::Tool"
+  >
+    <description>
+      Publish a goal pose for the robot.  After one use, reverts to default tool.
+    </description>
+  </class>
+</library>

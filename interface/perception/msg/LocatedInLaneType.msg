@@ -1,0 +1,13 @@
+uint8 LOCATED_IN_LANE_TYPE_UNKNOWN = 1
+
+uint8 IN_OTHER_LEFT_LANE = 2
+
+uint8 IN_EGO_LEFT_LANE = 3
+
+uint8 IN_MAIN_LANE = 4
+
+uint8 IN_EGO_RIGHT_LANE = 5
+
+uint8 IN_OTHRT_RIGHT_LANE = 6
+
+uint8 located_in_lane_type

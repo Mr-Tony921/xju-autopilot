@@ -1,0 +1,10 @@
+bool is_full_stop
+float64 path_remain
+float64 vehicle_mass
+common_msgs/TrajectoryPoint preview_point
+float64 cost_time
+float64 test_1
+float64 test_2
+float64 test_3
+float64 test_4
+float64 test_5

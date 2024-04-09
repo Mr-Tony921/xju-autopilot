@@ -1,0 +1,51 @@
+syntax = "proto2";
+
+package xju.planning;
+
+import "pnc_point.proto";
+
+message ObjectDecisionType {
+  oneof object_tag {
+    ObjectIgnore ignore = 1;
+    ObjectStop stop = 2;
+    ObjectFollow follow = 3;
+    ObjectYield yield = 4;
+    ObjectOvertake overtake = 5;
+    ObjectNudge nudge = 6;
+  }
+}
+
+message ObjectIgnore {}
+
+message ObjectStop {
+  optional double distance_m = 1;
+  optional pnc.Point3D stop_point = 2;
+  optional double stop_heading = 3;
+}
+
+message ObjectFollow {
+  optional double distance_m = 1;
+}
+
+message ObjectYield {
+  optional double distance_m = 1;
+}
+
+message ObjectOvertake {
+  optional double distance_m = 1;
+}
+
+message ObjectNudge {
+  enum Type {
+    LEFT_NUDGE = 1;
+    RIGHT_NUDGE = 2;
+    DYNAMIC_LEFT_NUDGE = 3;
+    DYNAMIC_RIGHT_NUDGE = 4;
+  };
+  optional Type type = 1;
+}
+
+message ObjectDecision {
+  optional string id = 1;
+  optional ObjectDecisionType decision = 2;
+}

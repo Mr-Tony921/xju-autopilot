@@ -1,0 +1,2 @@
+common_msgs/Point3D trajectory_points
+CubicCurve trajectory_curve

@@ -1,0 +1,126 @@
+syntax = "proto2";
+
+package xju.control;
+
+import "header.proto";
+import "vehicle_signal.proto";
+import "pnc_point.proto";
+import "error_code.proto";
+import "debug.proto";
+
+message ControlCommand {
+  optional pnc.Header header = 1;
+  // final control command
+  optional double wheel_torque = 2;  // target torque in Nm
+  optional double decelerate = 3;    // target decelerate in m/s2
+  optional double steering = 4;      // target steering angle, in deg
+  optional pnc.GearPosition gear = 5;
+
+  optional double acceleration = 6;  // used for simulation in m/s2
+  optional double speed = 7;
+  optional double steering_rate = 8;  // steering rate, in deg/s
+
+  // parking brake engage.
+  optional bool parking_brake = 9;
+  optional pnc.TurnSignal turn_signal = 10;
+  optional bool emergency_light = 11;
+
+  // debug info
+  optional Debug debug = 12;
+
+  optional double vehicle_mass = 13;
+
+  optional pnc.ErrorCode error_code = 14;
+
+  optional pnc.Debug visualization_debug = 15;
+
+  // true: FSM state is control
+  optional bool wheel_torque_isvalid = 16;
+  optional bool decelerate_isvalid = 17;
+  optional bool steering_isvalid = 18;
+}
+
+message Debug {
+  optional MpcDebug mpc_debug = 1;
+  optional PostDebug post_debug = 2;
+  optional PreDebug pre_debug = 3;
+  optional LongitudinalDebug longitudinal_debug = 4;
+  optional LateralDebug lateral_debug = 5;
+  optional MassIdentificationDebug mass_identification_debug = 6;
+
+  optional double record_time = 13;
+  optional double cost_time = 15;
+}
+
+message MpcDebug {
+  repeated xju.pnc.TrajectoryPoint predicted_trajectory = 1;
+  repeated double matrix_q_updated = 2;
+  repeated double matrix_r_updated = 3;
+  repeated double matrix_state = 4;
+  repeated xju.pnc.TrajectoryPoint resample_trajectory = 5;
+  optional xju.pnc.TrajectoryPoint matched_point = 6;
+  optional double calculated_cost_time = 7;  //[ms]
+  optional double acceleration = 8;
+  optional double steering = 9;
+  optional double jerk = 10;
+  optional double steer_angle_rate = 11;
+  optional double mpc_x_error_average = 12;
+  optional double mpc_y_error_average = 13;
+  optional double mpc_v_error_average = 14;
+  optional double mpc_phi_error_average = 15;
+  optional double iteration_number = 16;
+  optional double solve_status = 17;
+  optional double cost_time = 18;
+
+  optional double state_cost_precept = 19;
+  optional double control_cost_precept = 20;
+  optional double control_rate_cost_precept = 21;
+  optional double cost_of_state_x = 22;
+  optional double cost_of_state_y = 23;
+  optional double cost_of_state_v = 24;
+  optional double cost_of_state_phi = 25;
+}
+
+message PostDebug {
+  optional double test = 1;
+  optional double cost_time = 2;
+}
+
+message PreDebug {
+  optional double localization_x = 1;
+  optional double localization_y = 2;
+  optional double localization_heading = 3;
+  optional double cost_time = 4;
+  optional double test_1 = 5;
+}
+
+message LongitudinalDebug {
+  optional bool is_full_stop = 1;
+  optional double path_remain = 2;
+  optional double vehicle_mass = 3;
+  optional xju.pnc.TrajectoryPoint preview_point = 4;
+  optional double cost_time = 5;
+}
+
+message LateralDebug {
+  optional double real_steer_wheel_angle = 1;
+  optional double cost_time = 5;
+}
+
+message MassIdentificationDebug {
+  optional double test = 1;
+  optional double cost_time = 2;
+  optional double resistance_force_n = 3;
+  optional double whole_force = 4;
+  optional double v_ego_filter = 5;
+  optional double whole_force_filter = 6;
+  optional double accleration_x_by_v = 7;
+  optional double accleration_x_mean_filter = 8;
+  optional double whole_force_mean_filter = 9;
+  optional uint32 deque_size = 10;
+  optional double weight_mean_divide = 11;
+  optional uint32 stop_count_reset = 12;
+  optional uint32 stop_count = 13;
+  optional double weight_mean_divide_fast = 14;
+  optional double accleration_x_by_v_filter = 15;
+}

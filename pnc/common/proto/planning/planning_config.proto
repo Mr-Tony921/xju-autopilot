@@ -1,0 +1,11 @@
+syntax = "proto2";
+
+package xju.planning;
+
+import "task_config.proto";
+import "vehicle_state.proto";
+
+message PlanningConfig {
+  repeated pnc.TaskConfig default_task_config = 1;
+  optional pnc.VehicleStateConfig vehicle_state_config = 2;
+}

@@ -1,0 +1,11 @@
+syntax = "proto2";
+
+package xju.control;
+
+message LaneFollowScenarioConfig {
+  optional bool enabled = 1;
+}
+
+message AlignScenarioConfig {
+  optional bool enabled = 1;
+}

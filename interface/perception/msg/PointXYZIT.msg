@@ -1,0 +1,10 @@
+float64 x 
+float64 y 
+float64 z 
+uint32 intensity
+uint64 timestamp
+uint32 type
+uint32 elongation
+uint32 scan_id 
+uint32 scan_idx 
+uint32 is_2nd_return 

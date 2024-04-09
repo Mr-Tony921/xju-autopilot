@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>emlanes_simulator_package</name>
+  <version>0.0.0</version>
+  <description>emlanes simulator for PNC</description>
+  <maintainer email="todo@todo.abc">pnc</maintainer>
+  <license>TODO</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <build_depend>rclcpp</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>visualization_msgs</build_depend>
+  <build_depend>tf2_ros</build_depend>
+  <build_depend>tf2</build_depend>
+  <build_depend>tf2_geometry_msgs</build_depend>
+  <build_depend>pnc_proto_package</build_depend>
+  <build_depend>localization_msgs</build_depend>
+  <build_depend>perception_em_msgs</build_depend>
+
+  <exec_depend>rclcpp</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>visualization_msgs</exec_depend>
+  <exec_depend>tf2_ros</exec_depend>
+  <exec_depend>tf2</exec_depend>
+  <exec_depend>tf2_geometry_msgs</exec_depend>
+  <exec_depend>localization_msgs</exec_depend>
+  <exec_depend>perception_em_msgs</exec_depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

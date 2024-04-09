@@ -1,0 +1,10 @@
+syntax = "proto2";
+
+package xju.control;
+
+message LeadlagConfig {
+  optional double intermediate_state_saturation_level = 1 [default = 300];
+  optional double alpha = 2 [default = 0.1];
+  optional double beta = 3 [default = 1.0];
+  optional double tau = 4 [default = 0.0];
+}

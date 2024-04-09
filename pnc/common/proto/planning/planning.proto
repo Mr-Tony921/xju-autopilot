@@ -1,0 +1,61 @@
+syntax = "proto2";
+
+package xju.planning;
+
+import "header.proto";
+import "pnc_point.proto";
+import "estop.proto";
+import "vehicle_signal.proto";
+import "debug.proto";
+import "planning_status.proto";
+import "error_code.proto";
+import "object_decision.proto";
+import "latency_stats.proto";
+
+message ADCTrajectory {
+  optional pnc.Header header = 1;
+  optional double total_path_length = 2;
+  optional double total_path_time = 3;
+  optional pnc.EStop estop = 4;
+
+  optional bool is_replan = 5 [default = false];
+  optional string replan_reason = 6;
+
+  repeated pnc.TrajectoryPoint trajectory_point = 7;
+
+  enum TrajectoryType {
+    NORMAL = 0;
+    PATH_FALLBACK = 1;
+    SPEED_FALLBACK = 2;
+    TRAJECTORY_FALLBACK = 3;
+  };
+  optional TrajectoryType trajectory_type = 8;
+
+  // lane id along current reference line
+  optional int32 lane_id = 9;
+
+  // lane id target reference line
+  optional int32 target_lane_id = 10;
+
+  optional pnc.LatencyStats latency_stats = 11;
+
+  optional ScenarioStatus scenario_status = 12;
+
+  repeated ObjectDecision object_decision = 13;
+
+  optional LateralShiftStatus lateral_shift_status = 14;
+
+  optional pnc.TurnSignal turn_signal = 15;
+
+  optional pnc.ErrorCode error_code = 16;
+
+  optional pnc.Debug debug = 17;
+
+  optional pnc.Direction direction = 18;
+
+  optional double target_speed = 19;
+
+  optional LaneChangeStatus lane_change_status = 20;
+
+  optional pnc.PathPoint localize_pose = 21;
+}

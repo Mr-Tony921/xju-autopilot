@@ -1,0 +1,35 @@
+syntax = "proto2";
+
+package xju.pnc;
+
+import "vehicle_signal.proto";
+
+message VehicleState {
+  optional double timestamp = 1 [default = 0.0];
+  optional DrivingMode driving_mode = 2;
+  optional double mass = 4;
+  optional double slope = 5;
+  optional double x = 6 [default = 0.0];
+  optional double y = 7 [default = 0.0];
+  optional double z = 8 [default = 0.0];
+  optional double heading = 9 [default = 0.0];
+  optional double roll = 10 [default = 0.0];
+  optional double pitch = 11 [default = 0.0];
+  optional double yaw = 12 [default = 0.0];
+  optional double kappa = 13 [default = 0.0];
+  optional double linear_velocity = 14 [default = 0.0];
+  optional double angular_velocity = 15 [default = 0.0];
+  optional double linear_acceleration = 16 [default = 0.0];
+  optional GearPosition gear = 17;
+  optional double steering_angle = 18;
+  optional double front_wheel_angle = 19;
+  optional double center_x = 20;
+  optional double center_y = 21;
+}
+
+message VehicleStateConfig {
+  optional int32 mean_filter_window = 1;
+  optional double process_nosie_covariance = 2;
+  optional double measure_covariance = 3;
+  optional double go_straight_distance = 4;
+}

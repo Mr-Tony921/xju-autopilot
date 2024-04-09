@@ -1,0 +1,29 @@
+<launch>
+  <!-- args that can be set from the command line or a default will be used -->
+  <arg name="gflag_config_file_path" default="$(find-pkg-share pnc_configs_package)/planning/planning.conf"/>
+  <arg name="proto_config_file_path" default="$(find-pkg-share pnc_configs_package)/planning/planning.pb.txt"/>
+  <arg name="scenario_lane_follow_config_file" default="$(find-pkg-share pnc_configs_package)/planning/scenarios/lane_follow_scenario_config.pb.txt"/>
+  <arg name="scenario_road_change_config_file" default="$(find-pkg-share pnc_configs_package)/planning/scenarios/road_change_scenario_config.pb.txt"/>
+  <arg name="scenario_emergency_pull_over_config_file" default="$(find-pkg-share pnc_configs_package)/planning/scenarios/emergency_pull_over_config.pb.txt"/>
+  <arg name="scenario_emergency_stop_config_file" default="$(find-pkg-share pnc_configs_package)/planning/scenarios/emergency_stop_config.pb.txt"/>
+  <arg name="lane_decider_default_config_file" default="$(find-pkg-share pnc_configs_package)/planning/lane_decider_default_config.pb.txt"/>
+  <arg name="vehicle_config_file" default="$(find-pkg-share pnc_configs_package)/common/vehicle_config.pb.txt"/>
+  
+  <!-- temporary -->
+  <arg name="log_dir" default="/home/ws/log"/>
+  <arg name="use_sim_time" default="false"/>
+
+  <!-- start a planning_node in the planning namespace -->
+  <node pkg="planning_package" exec="planning_node" namespace="planning">
+    <param name="gflag_config_file_path" value="$(var gflag_config_file_path)"/>
+    <param name="proto_config_file_path" value="$(var proto_config_file_path)"/>
+    <param name="scenario_lane_follow_config_file" value="$(var scenario_lane_follow_config_file)"/>
+    <param name="scenario_road_change_config_file" value="$(var scenario_road_change_config_file)"/>
+    <param name="scenario_emergency_pull_over_config_file" value="$(var scenario_emergency_pull_over_config_file)"/>
+    <param name="scenario_emergency_stop_config_file" value="$(var scenario_emergency_stop_config_file)"/>
+    <param name="lane_decider_default_config_file" value="$(var lane_decider_default_config_file)"/>
+    <param name="vehicle_config_file" value="$(var vehicle_config_file)"/>
+    <param name="log_dir" value="$(var log_dir)"/>
+    <param name="use_sim_time" value="$(var use_sim_time)"/>
+  </node>
+</launch>

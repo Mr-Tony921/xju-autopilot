@@ -1,0 +1,70 @@
+syntax = "proto2";
+
+package xju.planning;
+
+import "pnc_point.proto";
+import "scenario_config.proto";
+import "stage_config.proto";
+import "vehicle_signal.proto";
+
+message PlanningStatus {
+  optional ScenarioStatus scenario_status = 1;
+  optional LaneChangeStatus lane_change_status = 2;
+  optional LateralShiftStatus lateral_shift_status = 3;
+  optional EmergencyStopStatus emergency_stop_status = 4;
+  optional EmergencyPullOverStatus emergency_pull_over_status = 5;
+  optional PathPointToPassThrough path_point_to_pass_through = 6;
+}
+
+message PathPointToPassThrough {
+  optional double x = 1;
+  optional double y = 2;
+  optional double theta = 3;
+}
+
+message ScenarioStatus {
+  optional pnc.ScenarioType scenario_type = 1;
+  optional pnc.StageType stage_type = 2;
+}
+
+message LaneChangeStatus {
+  enum Status {
+    LANE_FOLLOW = 1;
+    LANE_CHANGE_PREPARE = 2;
+    LANE_CHANGE = 3;        // during change lane state
+  }
+
+  optional Status status = 1;
+  optional string path_id = 2;
+  optional double timestamp = 3;
+  optional pnc.TurnSignal turn_signal = 4;
+  optional double prepare_acceleration = 5;
+  optional double prepare_speed = 6;
+  optional double prepare_time = 7;
+}
+
+message LateralShiftStatus {
+  enum Type {
+    NONE = 0;
+    LEFT = 1;
+    RIGHT = 2;
+  }
+  optional string obstacle_id = 1;
+  optional Type type = 2;
+  optional double distance_m = 3;
+}
+
+message EmergencyStopStatus {
+  optional pnc.Point2D local_stop_fence_point = 1;
+}
+
+message EmergencyPullOverStatus {
+  optional bool lane_change_right = 1 [default = false];
+  optional bool plan_pull_over_path = 2 [default = false];
+  optional pnc.Point2D position = 3;
+  optional double theta = 4;
+  optional double length_front = 5;
+  optional double length_back = 6;
+  optional double width_left = 7;
+  optional double width_right = 8;
+}

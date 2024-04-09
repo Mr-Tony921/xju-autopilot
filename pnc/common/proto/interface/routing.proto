@@ -1,0 +1,44 @@
+syntax = "proto2";
+
+package xju.pnc;
+
+import "header.proto";
+import "pnc_point.proto";
+
+message ParkingInfo {
+
+}
+
+message HubInfo {
+
+}
+
+message RampInfo {
+
+}
+
+message ChargingStationInfo {
+
+}
+
+message TollStationInfo {
+
+}
+
+message ServiceStationInfo {
+  
+}
+
+message Routing {
+  optional Header header = 1;
+  optional bool valid = 2;
+  optional pnc.Point2D destination = 3;
+  // optional ParkingInfo parking_info = 4;
+  // optional HubInfo hub_info = 5;
+  // optional RampInfo ramp_info = 6;
+  // optional ChargingStationInfo charging_station_info = 7;
+  // optional TollStationInfo toll_station_info = 8;
+  // optional ServiceStationInfo servive_station_info = 9;
+  optional pnc.Point2D change_point = 10;
+  optional uint32 direction = 11; // 0 不换道 1 向左 2 向右 3 不可用
+}

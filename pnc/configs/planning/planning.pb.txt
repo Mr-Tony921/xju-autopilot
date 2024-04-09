@@ -1,0 +1,174 @@
+default_task_config: {
+  task_type: LATERAL_SHIFT_DECIDER
+  lateral_shift_decider_config {
+    enabled: true
+    lat_safe_buff: 0.5
+    backward_safe_buff: 10.0
+    forward_check_distance: 150
+    lat_check_threshold: 1.0
+    default_lane_width: 3.75
+    forward_detection_zone_min: 15.0
+    backward_detection_zone_min: 0.0
+    forward_detection_time_length: 5.0
+    check_time_on_same_direction: 5.0
+    check_time_on_opposite_direction: 8.0
+    lateral_shift_distance_max: 0.3
+    safe_count: 20
+    hold_on_direction_count: 5
+    hold_on_distance_count: 5
+    warnning_count: 4
+  }
+}
+
+default_task_config: {
+  task_type: PATH_BOUND_DECIDER
+  path_bound_decider_config {
+    enabled: false
+    s_horizon: 100.0
+    s_resolution: 0.5
+    default_lane_width: 5.0
+    max_lateral_acceleration: 1.5
+    adc_edge_buffer: 0.0
+    adc_bound_buffer: 0.6
+    adc_buff_coeff: 0.0
+    obstacles_bound_lat_max: 8.0
+    passible_buff: 0.6
+  }
+}
+
+default_task_config: {
+  task_type: PATH_OPTIMIZER
+  path_optimizer_config {
+    enabled: true
+    enable_multi_thread: true
+    defalut_weights {
+      area: 1.5
+      l: 10.0
+      theta: 10.0
+      beta: 0.0
+      kappa: 100000.0
+      dkappa: 10000000.0
+      target_l: 1000000.0
+      target_theta: 1000000.0
+      max_target_l_slack: 0.2
+      max_target_theta_slack: 0.17
+    }
+    lane_change_weights {
+      area: 1.5
+      l: 10.0
+      theta: 100.0
+      beta: 0.0
+      kappa: 100000.0
+      dkappa: 10000000.0
+      target_l: 1000000.0
+      target_theta: 1000000.0
+      max_target_l_slack: 0.2
+      max_target_theta_slack: 0.17
+    }
+  }
+}
+
+default_task_config: {
+  task_type: PATH_DECIDER
+  path_decider_config {
+    enabled: true
+    lateral_ignore_buffer: 3
+    static_obstacle_buffer: 0.3
+    stop_distance: 8
+    short_path_length_threshold: 10
+    min_reference_line_remain_length: 10
+    virtual_obstacle_stop_distance:0.5
+  }
+}
+
+default_task_config: {
+  task_type: ST_GRAPH_DECIDER
+  st_graph_decider_config {
+    enabled: true
+    boundary_buffer_l: 0.1
+    max_centric_acceleration_limit: 3.0
+    minimal_kappa: 0.00001
+    lowest_speed: 2.5
+    static_obs_nudge_speed_ratio: 1.0
+    dynamic_obs_nudge_speed_ratio: 1.0
+    enable_nudge_slow_down: true
+    enable_preview_speed_limit: true
+    preveiw_speed_limit_delta_s: 50
+  }
+}
+
+default_task_config: {
+  task_type: SPEED_DECIDER
+  speed_decider_config {
+    enabled: true
+    time_sample_resolution: 1.0
+    min_sample_time: 0.1
+    num_velocity_sample: 9.0
+    min_velocity_resolution: 1.0
+    lon_stop_distance_buffer: 5.0 
+    lon_follow_distance_buffer: 1.0
+    lon_overtake_distance_buffer: 1.0
+    default_s_sample_buffer: 50.0
+    min_s_resolution: 1.0
+    dense_time_resolution: 0.1
+    max_start_dec_t: 4.0
+    enable_speed_limit: true
+    lon_dist_cost_std: 30.0
+    
+    default_weights {
+      guide_velocity: 20.0
+      accelerate: 15.0
+      jerk: 10.0
+      collision_dist: 0
+      follow_dist: 0
+      centripetal_acc: 20
+    }
+    has_obs_weights {
+      guide_velocity: 15.0
+      accelerate: 15.0
+      jerk: 10.0
+      collision_dist: 140.0
+      follow_dist: 7.0
+      centripetal_acc: 20.0      
+    }
+    has_stop_decision_weights {
+      guide_velocity: 3.0
+      accelerate: 15.0
+      jerk: 10.0
+      collision_dist: 100.0
+      follow_dist: 1.0
+      centripetal_acc: 20.0
+    }
+    lane_change_prepare_weights {
+      guide_velocity: 10.0
+      accelerate: 10.0
+      jerk: 10.0
+      collision_dist: 100.0
+      follow_dist: 2.0
+      centripetal_acc: 20.0
+    }
+  }
+}
+
+default_task_config: {
+  task_type: SPEED_OPTIMIZER
+  speed_optimizer_config {
+    enabled: true
+    default_weights {
+      dds: 20.0
+      ddds: 3000.0
+      a_c: 500.0
+      s_ref: 5.0
+      ds_ref: 1.0
+      dds_slack: 100000.0
+      ddds_slack: 1000.0
+    }
+  }
+}
+
+vehicle_state_config {
+  mean_filter_window: 10
+  process_nosie_covariance: 0.2
+  measure_covariance: 0.1
+  go_straight_distance: 100
+}

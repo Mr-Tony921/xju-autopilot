@@ -1,0 +1,43 @@
+syntax = "proto2";
+
+package xju.pnc;
+
+import "planning_task_config.proto";
+import "control_task_config.proto";
+
+message TaskConfig {
+  optional TaskType task_type = 1;
+  oneof task_config {
+    // planning
+    planning.LateralShiftDeciderConfig lateral_shift_decider_config =2;
+    planning.PathBoundDeciderConfig path_bound_decider_config = 3;
+    planning.PathOptimizerConfig path_optimizer_config = 4;
+    planning.PathDeciderConfig path_decider_config = 5;
+    planning.StGraphDeciderConfig st_graph_decider_config = 6;
+    planning.SpeedDeciderConfig speed_decider_config = 7;
+    planning.SpeedOptimizerConfig speed_optimizer_config = 8;
+
+    // control
+    control.MpcOptimizerConfig mpc_optimizer_config = 10;
+    control.WheelTorqueOptimizerConfig wheel_torque_optimizer_config = 11;
+    control.SteerAngleOptimizerConfig steer_angle_optimizer_config = 12; 
+    control.MassIdentificationConfig mass_identification_config = 13; 
+  }
+}
+
+enum TaskType {
+  // planning
+  LATERAL_SHIFT_DECIDER = 1;
+  PATH_BOUND_DECIDER = 2;
+  PATH_OPTIMIZER = 3;
+  PATH_DECIDER = 4;
+  ST_GRAPH_DECIDER = 5;
+  SPEED_DECIDER = 6;
+  SPEED_OPTIMIZER = 7;
+
+  // control
+  MPC_OPTIMIZER = 10;
+  WHEEL_TORQUE_OPTIMIZER = 11;
+  STEER_ANGLE_OPTIMIZER = 12;
+  MASS_IDENTIFICATION = 13;
+};

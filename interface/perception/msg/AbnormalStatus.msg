@@ -1,0 +1,5 @@
+uint8 ABNORMAL_STATUS_UNKNOWN = 0
+uint8 VELOCITYJUMP = 1
+uint8 POSITIONJUMP = 2
+
+uint8 abnormal_status

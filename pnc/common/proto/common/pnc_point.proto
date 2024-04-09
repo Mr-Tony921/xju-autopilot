@@ -1,0 +1,83 @@
+syntax = "proto2";
+
+package xju.pnc;
+
+message Point2D {
+  optional double x = 1;
+  optional double y = 2;
+}
+
+message Point3D {
+  optional double x = 1;
+  optional double y = 2;
+  optional double z = 3;
+}
+
+message SLPoint {
+  optional double s = 1;
+  optional double l = 2;
+  optional double dl = 3;
+  optional double ddl = 4;
+}
+
+message STPoint {
+  optional double t = 1;
+  optional double s = 2;
+}
+
+message SVPoint {
+  optional double s = 1;
+  optional double v = 2;
+}
+
+message FrenetFramePoint {
+  optional double s = 1;
+  optional double l = 2;
+  optional double dl = 3;
+  optional double ddl = 4;
+  optional double ds = 5;
+  optional double dds = 6;
+
+  optional double heading_error = 7;
+  optional double kappa = 8;
+  optional double dkappa = 9;
+}
+
+message SpeedPoint {
+  optional double t = 1;
+  optional double s = 2;
+  optional double v = 3;
+  optional double a = 4;
+  optional double da = 5;
+}
+
+message PathPoint {
+  optional double x = 1;
+  optional double y = 2;
+  optional double z = 3;
+
+  optional double theta = 4;
+  optional double kappa = 5;
+  optional double dkappa = 6;
+  optional double ddkappa = 7;
+
+  optional double s = 8;
+}
+
+message TrajectoryPoint {
+  optional PathPoint path_point = 1;
+  optional double v = 2;
+  optional double a = 3;
+  optional double da = 4;
+  optional double relative_time = 5;
+}
+
+message Path {
+  optional string name = 1;
+  repeated PathPoint path_point = 2;
+}
+
+message Trajectory {
+  optional string name = 1;
+  repeated TrajectoryPoint trajectory_point = 2;
+}

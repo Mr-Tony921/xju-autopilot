@@ -1,0 +1,57 @@
+syntax = "proto2";
+
+package xju.planning;
+
+message LaneDeciderConfig {
+  optional double test = 1;
+  optional double max_safe_distance_front_time = 2;
+  optional double min_safe_distance_front_time = 3;
+  optional double max_safe_distance_back_time = 4;
+  optional double min_safe_distance_back_time = 5;
+  optional double min_obst_dist_front = 6;
+  optional double min_obst_dist_back = 7;
+  optional double back_static_obstacle_safe_dis = 8;
+  optional double near_safe_speed_diff_ratio = 9;
+  optional double far_safe_speed_diff_ratio = 10;
+  optional double curv_radius_thr = 11;
+  optional double lane_follow_keep_time = 12;
+  optional double lane_change_prepare_keep_time = 13;
+  optional double lane_change_l_thr = 14;
+  optional double non_right_lane_running_time = 15;
+  optional double static_obstacle_speed_threshold = 16;
+  optional double obs_speed_ratio = 17;
+  optional double traffic_efficiency_ratio = 18;
+  optional double ego_speed_limit_lane_change = 19;
+  optional double relative_speed_dis_thr_factor = 20; 
+  optional double ego_speed_dis_thr_factor1 = 21; 
+  optional double ego_speed_dis_thr_factor2 = 22; 
+  optional double min_dis_thr = 23; 
+  optional double max_dis_thr = 24; 
+  optional int32 obs_speed_counter_thr = 25;
+  optional bool enable_lane_change_ego_speed = 26;
+  optional bool enable_lane_change_non_right_road = 27;
+  optional bool enable_lane_change_static_obstacle = 28;
+  optional bool enable_lane_change_low_speed_obstacle = 29;
+  optional bool enable_lane_change = 30; 
+  optional double prepare_speed_lower_factor = 31;
+  optional double prepare_speed_upper_factor = 32;
+  optional double prepare_speed_step = 33;
+  optional double prepare_accel_lower = 34;
+  optional double prepare_accel_upper = 35;
+  optional double prepare_accel_step = 36;
+  optional double adjust_time_lower = 37;
+  optional double adjust_time_upper = 38;
+  optional double adjust_time_step = 39;
+  optional double weight_accel = 40;
+  optional double weight_speed = 41;
+  optional double weight_time = 42;
+  optional double lane_change_max_prepare_keep_time = 43;
+  optional double front_obst_delta_v_coef = 44;
+  optional double front_obst_v_coef = 45;
+  optional double static_obstacle_dis_thr_factor =46;
+  optional double no_need_change_counter_thr = 47;
+  optional int32 select_space_failure_counter = 48;
+  optional bool enable_lane_change_speed_decider = 49;
+  optional double space_hysteresis_buffer = 50;
+  optional double lane_change_sucess_judge_buffer = 51;
+}

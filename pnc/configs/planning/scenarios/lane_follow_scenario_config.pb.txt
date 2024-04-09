@@ -1,0 +1,27 @@
+scenario_type: LANE_FOLLOW
+stage_type: LANE_FOLLOW_DEFAULT_STAGE
+stage_config: {
+  stage_type: LANE_FOLLOW_DEFAULT_STAGE
+  enabled: true
+  task_type: LATERAL_SHIFT_DECIDER
+  task_type: PATH_BOUND_DECIDER
+  task_type: PATH_OPTIMIZER
+  task_type: PATH_DECIDER
+  task_type: ST_GRAPH_DECIDER
+  task_type: SPEED_DECIDER
+  task_type: SPEED_OPTIMIZER
+
+  task_config: {
+    task_type: LATERAL_SHIFT_DECIDER
+    lateral_shift_decider_config {
+      enabled: true
+    }
+  }
+
+  task_config: {
+    task_type: PATH_BOUND_DECIDER
+    path_bound_decider_config {
+      enabled: true
+    }
+  }
+}

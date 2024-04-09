@@ -1,0 +1,9 @@
+syntax = "proto2";
+
+package xju.pnc;
+
+message LocalizationPose {
+  optional double x = 1;
+  optional double y = 2;
+  optional double theta = 3;
+}

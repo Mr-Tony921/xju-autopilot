@@ -1,0 +1,13 @@
+float64 brake_visible
+float64 brake_switch_on
+float64 left_turn_visible
+float64 left_turn_switch_on
+float64 right_turn_visible
+float64 right_turn_switch_on
+
+CLInfo brake_light
+CLInfo left_turn_light
+CLInfo right_turn_light
+
+bool is_valid
+float64 timestamp

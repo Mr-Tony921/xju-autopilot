@@ -1,0 +1,53 @@
+# ide/editor
+*.vscode
+*.idea
+*.swap
+*.slxc
+
+# matlab
+*.autosave
+slprj/
+*.mat
+*.asv
+
+# emacs
+**/.#*
+
+# log
+log/
+
+# build
+build-special/
+output/
+CMakeCache.txt
+CMakeFiles
+cmake_install.cmake
+Makefile
+build/
+install/
+install_manifest.txt
+cmake-build-debug/
+**/__pycache__/
+*.pyc
+**/CMakeCache.txt
+**/CMakeFiles
+**/cmake_install.cmake
+**/Makefile
+**/CMakeCache.txt
+**/CMakeFiles
+**/cmake_install.cmake
+**/Makefile
+**/install_manifest.txt
+**/venv
+**/catkin
+**/catkin_generated
+**/CTestTestfile.cmake
+**/devel
+**/gtest
+**/test_results
+
+# office
+*.~vsdx
+
+# figure
+./figure/*.png

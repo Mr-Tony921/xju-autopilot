@@ -1,0 +1,37 @@
+vehicle_id {
+  vin: "11111"
+  id: "1"
+}
+
+front_edge_to_center: 3.0
+back_edge_to_center: 3.0
+left_edge_to_center: 1.25
+right_edge_to_center: 1.25
+rear_axle_to_center: 2.0
+front_overhang_length: 0.5
+wheel_base: 4.0
+back_overhang_length: 0.5
+length: 6.0
+width: 2.5
+height: 2.0
+chassis_height: 0.4
+min_turn_radius: 9.7
+max_acceleration: 4.0
+max_deceleration: 6.0
+max_torque: 1600.0
+max_steer_angle: 900.0
+max_steer_angle_rate: 400.0
+steer_ratio: 24.85
+max_abs_speed_when_stopped: 0.2
+brake_deadzone: 0.01
+throttle_deadzone: 0.01
+torque_deadzone: 1.0
+steer_deadzone: 1.0
+mass_min_limit: 11246
+mass_max_limit: 11646
+
+rear_axle_to_hitch: 0.3
+
+min_vehicle_speed: 0
+max_vehicle_speed: 105
+wheel_rolling_radius: 0.525

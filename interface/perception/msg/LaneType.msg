@@ -1,0 +1,27 @@
+# LaneType
+int32 LAT_NORMA                   = 0     # 普通
+int32 LAT_ENTRY                   = 1     # 入口
+int32 LAT_EXIT                    = 2     # 出口
+int32 LAT_EMERGENCY               = 3     # 应急车道
+int32 LAT_ON_RAMP                 = 4     # 进入匝道
+int32 LAT_OFF_RAMP                = 5     # 退出匝道
+int32 LAT_CONNECT_RAMP            = 6     # 连接匝道
+int32 LAT_ACCELERATE              = 7     # 加速车道
+int32 LAT_DECELERATE              = 8     # 减速车道
+int32 LAT_DIVERSION               = 9    # 导流区车道
+int32 LAT_EMERGENCY_PARKING_STRIP = 10    # 紧急停车带
+int32 LAT_CLIMBING                = 11    # 爬坡车道
+int32 LAT_ESCAPE                  = 12    # 避险车道
+int32 LAT_DEDICATED_CUSTOMS       = 13    # 海关专用车道
+int32 LAT_VIEWING_PLATFROM        = 14    # 观景台车道
+int32 LAT_PARALLEL_LANE           = 15    # 平行车道
+int32 LAT_PARKING                 = 16    # 停车车道
+int32 LAT_LEFT_TURN_AREA          = 17    # 左转等待车道
+int32 LAT_VARIABLE_LANE           = 18    # 可变车道
+int32 LAT_NON_MOTOR_LANE          = 19    # 非机动车道
+int32 LAT_BUS_STOP                = 20    # 公交停靠站
+int32 LAT_NO_ENTRY_LANE           = 21    # 不可行驶车道
+int32 LAT_U_TURN_LANE             = 22    # 掉头车道
+int32 LAT_RIGHT_TURN_LANE         = 23    # 右转专用车道
+int32 LAT_OTHER                   = 24    # 其他车道
+int32 LAT_UNKNOWN                 = -9999

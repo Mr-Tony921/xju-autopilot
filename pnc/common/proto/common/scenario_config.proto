@@ -1,0 +1,40 @@
+syntax = "proto2";
+
+package xju.pnc;
+
+import "stage_config.proto";
+
+import "planning_scenario_config.proto";
+import "control_scenario_config.proto";
+
+message ScenarioConfig {
+  
+  optional ScenarioType scenario_type = 1;
+  oneof scenario_config {
+    // planning
+    planning.LaneFollowScenarioConfig lane_follow_scenario_config = 2;
+    planning.EmergencyPullOverScenarioConfig emergency_pull_over_config = 3;
+    planning.EmergencyStopScenarioConfig emergency_stop_config = 4;
+
+    // control
+    control.LaneFollowScenarioConfig control_lane_follow_config = 10;
+    control.AlignScenarioConfig align_config = 11;
+
+  }
+  repeated StageType stage_type = 12;
+  repeated StageConfig stage_config = 13;
+
+}
+
+enum ScenarioType {
+  // planning
+  LANE_FOLLOW = 0;
+  ROAD_CHANGE = 1;
+
+  EMERGENCY_PULL_OVER = 2;
+  EMERGENCY_STOP = 3;
+
+  // control
+  CONTROL_LANE_FOLLOW = 10; // default Control Scenario
+  CONTROL_ALIGN = 11;
+};

@@ -1,0 +1,35 @@
+syntax = "proto2";
+
+package xju.pnc;
+
+import "task_config.proto";
+import "lane_decider_config.proto";
+
+message StageConfig {
+  optional StageType stage_type = 1;
+  optional bool enabled = 2 [default = true];
+  repeated TaskType task_type = 3;
+  repeated TaskConfig task_config = 4;
+  optional planning.LaneDeciderConfig lane_decider_config = 5;
+}
+
+enum StageType {
+  NO_STAGE = 0;
+
+  // planning
+  LANE_FOLLOW_DEFAULT_STAGE = 1;
+  ROAD_CHANGE_DEFAULT_STAGE = 2;
+  
+  EMERGENCY_PULL_OVER_LANE_CHANGE = 20;
+  EMERGENCY_PULL_OVER_SLOW_DOWN = 21;
+  EMERGENCY_PULL_OVER_APPROACH = 22;
+  EMERGENCY_PULL_OVER_STANDBY = 23;
+
+  EMERGENCY_STOP_APPROACH = 30;
+  EMERGENCY_STOP_STANDBY = 31; 
+  
+  // control
+  CONTROL_DEFAULT_STAGE = 10;
+
+
+};

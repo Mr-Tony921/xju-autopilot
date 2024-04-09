@@ -1,0 +1,8 @@
+syntax = "proto2";
+
+package xju.pnc;
+
+message Align {
+  optional double s = 1;
+  optional double l = 2;
+}

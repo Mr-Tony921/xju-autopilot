@@ -1,0 +1,2 @@
+float64 probability
+common_msgs/TrajectoryPoint[] trajectory

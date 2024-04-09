@@ -1,0 +1,40 @@
+syntax = "proto2";
+
+package xju.pnc;
+
+import "header.proto";
+import "pnc_point.proto";
+
+// just using local localization
+message Localization {
+  optional Header header = 1;
+  optional Point3D position = 2;
+  optional double heading = 3;
+  optional Point3D linear_velocity = 4;
+  optional Point3D linear_acceleration = 5;
+  optional Point3D angular_velocity = 6;
+  optional Quaternion orientation = 7;
+  optional Point3D eular_angles = 8;
+  optional LocalizeState state = 9;
+  optional PathPoint gloal_localize = 10;
+}
+
+// A unit quaternion that represents a spatial rotation. See the link below for
+// details.
+//   https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation
+// The scalar part qw can be omitted. In this case, qw should be calculated by
+//   qw = sqrt(1 - qx * qx - qy * qy - qz * qz).
+message Quaternion {
+  optional double qx = 1 [default = nan];
+  optional double qy = 2 [default = nan];
+  optional double qz = 3 [default = nan];
+  optional double qw = 4 [default = nan];
+}
+
+enum LocalizeState {
+  UNKNOWN_L = 0;       // 默认
+  WAIT_L = 1;          // 等待
+  INITIALIZING_L = 2;  // 初始化
+  TRACKING_L = 3;      // 定位正常输出
+  ERROR_L = 4;         // 故障
+};

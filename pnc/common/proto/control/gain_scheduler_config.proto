@@ -1,0 +1,12 @@
+syntax = "proto2";
+
+package xju.control;
+
+message GainScheduler {
+  repeated GainSchedulerInfo scheduler = 1;
+}
+
+message GainSchedulerInfo {
+  optional double speed = 1;
+  optional double ratio = 2;
+}

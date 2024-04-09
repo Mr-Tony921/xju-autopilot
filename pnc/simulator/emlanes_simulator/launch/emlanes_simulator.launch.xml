@@ -1,0 +1,17 @@
+<launch>
+  <!-- args that can be set from the command line or a default will be used -->
+  <arg name="gflag_config_file_path" default="$(find-pkg-share pnc_configs_package)/simulator/simulator.conf"/>
+  <arg name="vehicle_config_file" default="$(find-pkg-share pnc_configs_package)/common/vehicle_config.pb.txt"/>
+  <arg name="hdmap_config_file" default="$(find-pkg-share pnc_configs_package)/pnc_map/hdmap/Town04.osm"/>
+  <!-- temporary -->
+  <arg name="log_dir" default="/home/ws/log"/>
+  <arg name="use_sim_time" default="false"/>
+
+  <node pkg="emlanes_simulator_package" exec="emlanes_simulator_node" namespace="emlanes_simulator">
+    <param name="gflag_config_file_path" value="$(var gflag_config_file_path)"/>
+    <param name="hdmap_config_file" value="$(var hdmap_config_file)"/>
+    <param name="vehicle_config_file" value="$(var vehicle_config_file)"/>
+    <param name="log_dir" value="$(var log_dir)"/>
+    <param name="use_sim_time" value="$(var use_sim_time)"/>
+  </node>
+</launch>

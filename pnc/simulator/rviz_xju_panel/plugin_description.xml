@@ -1,0 +1,8 @@
+<library path="rviz_xju_panel">
+    <class name="SimulationPanel" type="xju::simulator::SimulationPanel" base_class_type="rviz_common::Panel">
+        <description>
+            simulation_panel
+        </description>
+    </class>
+
+</library>

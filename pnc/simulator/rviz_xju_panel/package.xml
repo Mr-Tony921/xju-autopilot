@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>rviz_xju_panel</name>
+  <version>0.0.0</version>
+  <description>Panel for rviz2</description>
+  <maintainer email="todo@todo.abc">pnc</maintainer>
+  <license>TODO</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>visualization_msgs</build_depend>
+  <build_depend>rclcpp</build_depend>
+  <build_depend>rviz_common</build_depend>
+  <build_depend>libqt5-widgets</build_depend>
+  <build_depend>libqt5-core</build_depend>
+  <build_depend>libqt5-gui</build_depend>
+  <build_depend>libqt5-opengl</build_depend>
+  <build_depend>rviz_ogre_vendor</build_depend>
+  <build_depend>pluginlib</build_depend>
+  <build_depend>rviz_assimp_vendor</build_depend>
+  <build_depend>rviz_rendering</build_depend>
+  <build_depend>pnc_proto_package</build_depend>
+
+
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>visualization_msgs</exec_depend>
+  <exec_depend>rclcpp</exec_depend>
+  <exec_depend>rviz_common</exec_depend>
+  <exec_depend>libqt5-widgets</exec_depend> 
+  <exec_depend>libqt5-core</exec_depend>
+  <exec_depend>libqt5-gui</exec_depend>
+  <exec_depend>libqt5-opengl</exec_depend>
+  <exec_depend>rviz_ogre_vendor</exec_depend>
+  <exec_depend>pluginlib</exec_depend>
+  <exec_depend>rviz_assimp_vendor</exec_depend>
+  <exec_depend>rviz_rendering</exec_depend>
+
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <rviz plugin="plugin_description.xml"/>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

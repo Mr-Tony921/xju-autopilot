@@ -1,0 +1,11 @@
+uint8 MOVING = 0
+uint8 STATIONARY = 1
+uint8 ONCOMING = 2
+uint8 STATIONARY_CANDIDATE = 3
+uint8 UNKNOWN = 4
+uint8 CROSSING_STATIONARY = 5
+uint8 CROSSING_MOVING = 6
+uint8 STOPPED = 7
+uint8 MAX_RAW_MOTION_STATE = 8
+
+uint8 raw_motion_state

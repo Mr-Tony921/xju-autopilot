@@ -1,0 +1,28 @@
+syntax = "proto2";
+
+package xju.control;
+import "task_config.proto";
+import "vehicle_state.proto";
+
+message ControlConfig {
+  optional PreProcessorConfig pre_processor_config = 1;
+  optional PostProcessorConfig post_processor_config = 2;
+  repeated pnc.TaskConfig default_task_config = 3;
+  optional pnc.VehicleStateConfig vehicle_state_config = 4;
+}
+
+message PreProcessorConfig {
+  optional bool enable_input_timestamp_check = 1;
+  optional int32 max_localization_miss_num = 2;
+  optional int32 max_chassis_miss_num = 3;
+  optional int32 max_planning_miss_num = 4;
+  optional double localization_period = 5;
+  optional double chassis_period = 6;
+  optional double trajectory_period = 7;
+  optional double minimum_speed_resolution = 8;
+  optional double max_acceleration_when_stopped = 9;
+}
+
+message PostProcessorConfig {
+  optional double soft_estop_brake = 1;  
+}

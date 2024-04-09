@@ -1,0 +1,63 @@
+syntax = "proto2";
+
+package xju.pnc;
+
+message VehicleConfig {
+  optional VehicleID vehicle_id = 1;
+
+  optional double front_edge_to_center = 2;
+  optional double back_edge_to_center = 3;
+  optional double left_edge_to_center = 4;
+  optional double right_edge_to_center = 5;
+
+  optional double front_axle_to_center = 6;
+  optional double rear_axle_to_center = 7;
+
+  optional double front_overhang_length = 8;
+  optional double wheel_base = 9;
+  optional double back_overhang_length = 10;
+
+  optional double length = 11;
+  optional double width = 12;
+  optional double height = 13;
+  optional double chassis_height = 14;
+
+  optional double min_turn_radius = 15;
+  optional double max_acceleration = 16;
+  optional double max_deceleration = 17;
+  optional double max_torque = 18;
+
+  optional double max_steer_angle = 19;
+  optional double max_steer_angle_rate = 20;
+  optional double steer_ratio = 21;
+  repeated SteerRatioPair steer_ratio_map = 22;
+
+  optional double max_abs_speed_when_stopped = 23;
+
+  optional double brake_deadzone = 24;
+  optional double throttle_deadzone = 25;
+  optional double torque_deadzone = 26;
+  optional double steer_deadzone = 27;
+
+  optional double mass_min_limit = 28;
+  optional double mass_max_limit = 29;
+
+  // negative: hitch is front of vehicle rear axle
+  // positive: hitch is back of vehicle rear axle
+  optional double rear_axle_to_hitch = 30;
+
+  // new added for control
+  optional double min_vehicle_speed = 31; // kph
+  optional double max_vehicle_speed = 32;  // kph
+  optional double wheel_rolling_radius = 33;
+}
+
+message VehicleID {
+  optional string vin = 1;
+  optional string id = 2;
+}
+
+message SteerRatioPair {
+  optional double steering_wheel_angle = 1;
+  optional double front_wheel_angle = 2;
+}

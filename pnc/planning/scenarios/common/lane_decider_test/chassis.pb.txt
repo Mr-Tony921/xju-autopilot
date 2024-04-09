@@ -1,0 +1,25 @@
+header {
+  timestamp_sec: 1173545122.22
+  module_name: "chassis"
+}
+started: true
+speed_ms: 0.0
+acceleration: 0.0
+throttle_percentage: 0.0
+brake_percentage: 0.0
+steering_percentage: 0.0
+steering_angle: 0.0
+steering_torque_nm: 0.0
+motor_rpm: 0.0
+motor_torque_nm: 0.0
+gear_position: DRIVE
+driving_mode: COMPLETE_AUTO_DRIVE
+parking_brake: false
+high_beam_signal: false
+low_beam_signal: false
+left_turn_signal: false
+right_turn_signal: false
+horn: false
+wiper: false
+mass: 1400
+slope: 0.0

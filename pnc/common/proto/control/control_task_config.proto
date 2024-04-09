@@ -1,0 +1,96 @@
+syntax = "proto2";
+
+package xju.control;
+
+import "gain_scheduler_config.proto";
+import "leadlag_config.proto";
+import "mpc_solver_config.proto";
+
+message MpcOptimizerConfig {
+  optional double weight_x = 1;
+  optional double weight_y = 2;
+  optional double weight_v = 3;
+  optional double weight_phi = 4;
+  optional double weight_xf = 5;
+  optional double weight_yf = 6;
+  optional double weight_vf = 7;
+  optional double weight_phif = 8;
+
+  optional double weight_a = 9;
+  optional double weight_steer = 10;
+  optional double weight_jerk = 11;
+  optional double weight_steer_rate = 12;
+
+  optional double delta_x = 15;
+  optional double delta_y = 16;
+  optional double delta_speed = 17;
+  optional double delta_phi = 18;
+
+  optional GainScheduler heading_gain_scheduler = 19;
+  optional GainScheduler steer_weight_gain_scheduler = 20;
+  optional double vehicle_jerk_limit = 21;
+  optional bool enable_gain_scheduler = 22;
+  optional MpcSolverConfig solver_config = 23;
+  optional bool find_matched_point_by_position = 24;
+}
+
+message WheelTorqueOptimizerConfig {
+  optional double max_path_length_when_stopped = 1 [default = 0.5];
+  optional double standstill_acceleration = 2;
+  optional double wheel_torque_rate_limit = 3;
+  optional double wheel_torque_max_limit = 4;
+  optional double wheel_torque_min_limit = 5;
+
+  optional double wheel_torque_filter_cutoff_freq = 7;
+  optional double acceleration_filter_cutoff_freq = 8;
+  optional double break_filter_cutoff_freq = 9;
+  optional double pitch_angle_filter_cutoff_freq = 10;
+
+  optional double pitch_angle_filter_threshold = 11;
+  optional double rolling_coefficient = 12 [default = 0.015];
+  optional double aero_coefficient = 13 [default = 0.8];
+  optional double frontal_area = 14 [default = 8.5]; 
+  optional double air_density = 15 [default = 1.2258];
+  optional double max_abs_speed_when_stopped = 16 [default = 0.2];
+  optional double stop_acceleration = 17 [default = -4];
+  optional double max_abs_acceleration_when_stopped = 18 [default = 0.01];
+  optional double max_path_when_prepared_for_stop = 19;
+
+  optional double vehicle_jerk_limit = 21;
+  optional int32 quit_full_stop_threshold = 22;
+  optional int32 enter_full_stop_threshold = 23;
+  optional int32 preview_window = 24;
+
+  optional bool enable_brake_filter = 25;
+  optional bool enable_acceleration_filter = 26;
+  optional bool enable_wheel_torque_filter = 27;
+  optional bool enable_pitch_angle_filter = 28;
+  optional ResistanceForceCalibrationTable resistance_force_table = 29; 
+}
+
+message SteerAngleOptimizerConfig {
+  optional LeadlagConfig leadlag_config = 2;
+  optional double angle_filter_cutoff_freq = 3;
+  optional double steer_angle_not_move_threshold = 4;
+  optional GainScheduler steer_gain_scheduler = 5;
+  optional double real_steer_limit = 6;
+  optional bool enable_leadlag_controller = 7;
+  optional bool enable_steer_angle_filter = 8;
+}
+
+message MassIdentificationConfig {
+  optional bool enable_mass_identification_task = 1;
+  optional bool enable_mass_filter = 2;
+  optional int32 mass_filter_window_size = 3;
+  optional ResistanceForceCalibrationTable resistance_force_table = 4;
+}
+
+message ResistanceForceCalibrationTable {
+  repeated ResistanceForceCalibrationInfo scheduler = 1;
+}
+
+message  ResistanceForceCalibrationInfo {
+  optional double speed_kph = 1;
+  optional double mass_kg = 2;
+  optional double force_n = 3;
+}

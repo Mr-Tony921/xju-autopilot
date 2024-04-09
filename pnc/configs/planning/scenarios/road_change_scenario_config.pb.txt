@@ -1,0 +1,44 @@
+scenario_type: ROAD_CHANGE
+stage_type: ROAD_CHANGE_DEFAULT_STAGE
+stage_config: {
+  stage_type: ROAD_CHANGE_DEFAULT_STAGE
+  enabled: true
+  task_type: LATERAL_SHIFT_DECIDER
+  task_type: PATH_BOUND_DECIDER
+  task_type: PATH_OPTIMIZER
+  task_type: PATH_DECIDER
+  task_type: ST_GRAPH_DECIDER
+  task_type: SPEED_DECIDER
+  task_type: SPEED_OPTIMIZER
+
+  task_config: {
+    task_type: LATERAL_SHIFT_DECIDER
+    lateral_shift_decider_config {
+      enabled: true
+    }
+  }
+
+  task_config: {
+    task_type: PATH_BOUND_DECIDER
+    path_bound_decider_config {
+      enabled: true
+    }
+  }
+
+  lane_decider_config: {
+    max_safe_distance_front_time: 3
+    min_safe_distance_front_time: 0.5
+    max_safe_distance_back_time: 3
+    min_safe_distance_back_time: 0.5
+    min_obst_dist_front: 5.0
+    min_obst_dist_back: 5.0
+    back_static_obstacle_safe_dis: 5
+    near_safe_speed_diff_ratio: 0.0
+    far_safe_speed_diff_ratio: 0.3
+    enable_lane_change: true
+    enable_lane_change_ego_speed: false
+    enable_lane_change_non_right_road: false
+    enable_lane_change_static_obstacle: false
+    enable_lane_change_low_speed_obstacle: false
+  }
+}

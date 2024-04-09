@@ -1,0 +1,373 @@
+header {
+  timestamp_sec: 1173545122.22
+  module_name: "prediction"
+}
+prediction_obstacle {
+  perception_obstacle{
+    id: 1
+    position {
+      x: 0.0
+      y: 60.0
+      z: 0.0
+    }
+    heading: 1.57
+    velocity {
+      x: 0.0
+      y: 0.0
+      z: 0.0
+    }
+    acceleration {
+      x: 0.0
+      y: 0.0
+      z: 0.0
+    }
+    length: 4.0
+    width: 2.0
+    height: 2.0
+    polygon_point {
+      x: -1.0
+      y: 62.0
+      z: 0.0
+    }
+    polygon_point {
+      x: -1.0
+      y: 58.0
+      z: 0.0
+    }
+    polygon_point {
+      x: 1.0
+      y: 58.0
+      z: 0.0
+    }
+    polygon_point {
+      x: 1.0
+      y: 62.0
+      z: 0.0
+    }
+    type: VEHICLE
+  }
+  is_static: true
+  is_caution: false
+}
+prediction_obstacle {
+  perception_obstacle{
+    id: 2
+    position {
+      x: 4.0
+      y: 30.0
+      z: 0.0
+    }
+    heading: 1.57
+    velocity {
+      x: 0.0
+      y: 5.0
+      z: 0.0
+    }
+    acceleration {
+      x: 0.0
+      y: 0.0
+      z: 0.0
+    }
+    length: 4.0
+    width: 2.0
+    height: 2.0
+    polygon_point {
+      x: 2.0
+      y: 32.0
+      z: 0.0
+    }
+    polygon_point {
+      x: 2.0
+      y: 28.0
+      z: 0.0
+    }
+    polygon_point {
+      x: 6.0
+      y: 28.0
+      z: 0.0
+    }
+    polygon_point {
+      x: 6.0
+      y: 32.0
+      z: 0.0
+    }
+    type: VEHICLE
+  }
+  prediction_trajectory {
+    probability: 1.0
+    trajectory {
+      name: "1"
+      trajectory_point {
+        path_point {
+          x: 4.0
+          y: 30.0
+          z: 0.0
+          theta: 0.0
+        }
+        v: 5.0
+        a: 0.0
+        da: 0.0
+        relative_time: 0.0
+      }
+      trajectory_point {
+        path_point {
+          x: 4.0
+          y: 35.0
+          z: 0.0
+          theta: 0.0
+        }
+        v: 5.0
+        a: 0.0
+        da: 0.0
+        relative_time: 1.0
+      }
+      trajectory_point {
+        path_point {
+          x: 4.0
+          y: 40.0
+          z: 0.0
+          theta: 0.0
+        }
+        v: 5.0
+        a: 0.0
+        da: 0.0
+        relative_time: 2.0
+      }
+      trajectory_point {
+        path_point {
+          x: 4.0
+          y: 45.0
+          z: 0.0
+          theta: 0.0
+        }
+        v: 5.0
+        a: 0.0
+        da: 0.0
+        relative_time: 3.0
+      }
+      trajectory_point {
+        path_point {
+          x: 4.0
+          y: 50.0
+          z: 0.0
+          theta: 0.0
+        }
+        v: 5.0
+        a: 0.0
+        da: 0.0
+        relative_time: 4.0
+      }
+      trajectory_point {
+        path_point {
+          x: 4.0
+          y: 55.0
+          z: 0.0
+          theta: 0.0
+        }
+        v: 5.0
+        a: 0.0
+        da: 0.0
+        relative_time: 5.0
+      }
+      trajectory_point {
+        path_point {
+          x: 4.0
+          y: 60.0
+          z: 0.0
+          theta: 0.0
+        }
+        v: 5.0
+        a: 0.0
+        da: 0.0
+        relative_time: 6.0
+      }
+      trajectory_point {
+        path_point {
+          x: 4.0
+          y: 65.0
+          z: 0.0
+          theta: 0.0
+        }
+        v: 5.0
+        a: 0.0
+        da: 0.0
+        relative_time: 7.0
+      }
+      trajectory_point {
+        path_point {
+          x: 4.0
+          y: 70.0
+          z: 0.0
+          theta: 0.0
+        }
+        v: 5.0
+        a: 0.0
+        da: 0.0
+        relative_time: 8.0
+      }
+    }
+  }
+  is_static: false
+  is_caution: true
+}
+// prediction_obstacle {
+//   perception_obstacle{
+//     id: 3
+//     position {
+//       x: -4.0
+//       y: 30.0
+//       z: 0.0
+//     }
+//     heading: 1.57
+//     velocity {
+//       x: 0.0
+//       y: 5.0
+//       z: 0.0
+//     }
+//     acceleration {
+//       x: 0.0
+//       y: 0.0
+//       z: 0.0
+//     }
+//     length: 4.0
+//     width: 2.0
+//     height: 2.0
+//     polygon_point {
+//       x: -2.0
+//       y: 32.0
+//       z: 0.0
+//     }
+//     polygon_point {
+//       x: -2.0
+//       y: 28.0
+//       z: 0.0
+//     }
+//     polygon_point {
+//       x: -6.0
+//       y: 28.0
+//       z: 0.0
+//     }
+//     polygon_point {
+//       x: -6.0
+//       y: 32.0
+//       z: 0.0
+//     }
+//     type: VEHICLE
+//   }
+//   prediction_trajectory {
+//     probability: 1.0
+//     trajectory {
+//       name: "1"
+//       trajectory_point {
+//         path_point {
+//           x: -4.0
+//           y: 30.0
+//           z: 0.0
+//           theta: 0.0
+//         }
+//         v: 5.0
+//         a: 0.0
+//         da: 0.0
+//         relative_time: 0.0
+//       }
+//       trajectory_point {
+//         path_point {
+//           x: -4.0
+//           y: 35.0
+//           z: 0.0
+//           theta: 0.0
+//         }
+//         v: 5.0
+//         a: 0.0
+//         da: 0.0
+//         relative_time: 1.0
+//       }
+//       trajectory_point {
+//         path_point {
+//           x: -4.0
+//           y: 40.0
+//           z: 0.0
+//           theta: 0.0
+//         }
+//         v: 5.0
+//         a: 0.0
+//         da: 0.0
+//         relative_time: 2.0
+//       }
+//       trajectory_point {
+//         path_point {
+//           x: -4.0
+//           y: 45.0
+//           z: 0.0
+//           theta: 0.0
+//         }
+//         v: 5.0
+//         a: 0.0
+//         da: 0.0
+//         relative_time: 3.0
+//       }
+//       trajectory_point {
+//         path_point {
+//           x: -4.0
+//           y: 50.0
+//           z: 0.0
+//           theta: 0.0
+//         }
+//         v: 5.0
+//         a: 0.0
+//         da: 0.0
+//         relative_time: 4.0
+//       }
+//       trajectory_point {
+//         path_point {
+//           x: -4.0
+//           y: 55.0
+//           z: 0.0
+//           theta: 0.0
+//         }
+//         v: 5.0
+//         a: 0.0
+//         da: 0.0
+//         relative_time: 5.0
+//       }
+//       trajectory_point {
+//         path_point {
+//           x: -4.0
+//           y: 60.0
+//           z: 0.0
+//           theta: 0.0
+//         }
+//         v: 5.0
+//         a: 0.0
+//         da: 0.0
+//         relative_time: 6.0
+//       }
+//       trajectory_point {
+//         path_point {
+//           x: -4.0
+//           y: 65.0
+//           z: 0.0
+//           theta: 0.0
+//         }
+//         v: 5.0
+//         a: 0.0
+//         da: 0.0
+//         relative_time: 7.0
+//       }
+//       trajectory_point {
+//         path_point {
+//           x: -4.0
+//           y: 70.0
+//           z: 0.0
+//           theta: 0.0
+//         }
+//         v: 5.0
+//         a: 0.0
+//         da: 0.0
+//         relative_time: 8.0
+//       }
+//     }
+//   }
+//   is_static: false
+//   is_caution: true
+// }

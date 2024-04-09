@@ -1,0 +1,17 @@
+syntax = "proto2";
+
+package xju.control;
+
+message MpcSolverConfig {
+  optional double mpc_ts = 1;
+  optional double eps_abs = 2;       // converge threshold
+  optional double eps_rel = 3;       // converge threshold
+  optional int32 max_iteration = 4;  // maximum iteration for lqr solve
+  optional double time_limit = 5;    // max_calculate_time
+  optional bool polish = 6;
+  optional bool enable_print_log = 7;
+  optional int32 prediction_horizon = 8;
+  optional int32 control_horizon = 9;
+  optional bool enable_warm_start = 10;
+
+}

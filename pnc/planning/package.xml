@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>planning_package</name>
+  <version>1.0.0</version>
+  <description>The planning package</description>
+
+  <maintainer email="todo@todo.abc">pnc</maintainer>
+  <license>TODO</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>rclcpp</depend>
+  <depend>geometry_msgs</depend>
+  <depend>visualization_msgs</depend>
+  <depend>common_msgs</depend>
+  <depend>chart_msgs</depend>
+  <depend>chassis_msgs</depend>
+  <depend>control_msgs</depend>
+  <depend>localization_msgs</depend>
+  <depend>perception_em_msgs</depend>
+  <depend>planning_msgs</depend>
+  <depend>routing_msgs</depend>
+  <depend>pnc_proto_package</depend>
+
+  <exec_depend>ros2launch</exec_depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <!-- The export tag contains other, unspecified, tags -->
+  <export>
+    <!-- Other tools can request additional information be placed here -->
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

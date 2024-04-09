@@ -1,0 +1,34 @@
+syntax = "proto2";
+
+package xju.pnc;
+
+enum TurnSignal {
+  TURN_NONE = 0;
+  TURN_LEFT = 1;
+  TURN_RIGHT = 2;
+}
+
+enum Direction {
+  FORWARD = 0;
+  BACKWARD = 1;
+}
+
+enum GearPosition {
+  NEUTRAL = 0;
+  DRIVE = 1;
+  REVERSE = 2;
+  PARKING = 3;
+  LOW = 4;
+  INVALID = 5;
+  NONE = 6;
+}
+
+enum DrivingMode {
+  COMPLETE_MANUAL = 0;  // human drive
+  COMPLETE_AUTO_DRIVE = 1;
+  AUTO_STEER_ONLY = 2;  // only steer
+  AUTO_SPEED_ONLY = 3;  // include throttle and brake
+
+  // security mode when manual intervention happens, only response status
+  EMERGENCY_MODE = 4;
+}

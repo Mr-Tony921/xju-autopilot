@@ -1,0 +1,127 @@
+syntax = "proto2";
+
+package xju.planning;
+
+message LateralShiftDeciderConfig {
+  optional bool enabled = 1;
+  optional double lat_safe_buff = 2;
+  optional double backward_safe_buff = 3;
+  optional double forward_check_distance = 4;
+  optional double lat_check_threshold = 5;
+  optional double default_lane_width = 6;
+  optional double forward_detection_zone_min = 7;
+  optional double backward_detection_zone_min = 8;
+  optional double forward_detection_time_length = 9;
+  optional double check_time_on_same_direction = 10;
+  optional double check_time_on_opposite_direction = 11;
+  optional double lateral_shift_distance_max = 12;
+  optional int32 safe_count = 13;
+  optional int32 hold_on_direction_count = 14;
+  optional int32 hold_on_distance_count = 15;
+  optional int32 warnning_count = 16;
+}
+
+message PathBoundDeciderConfig {
+  optional bool enabled = 1;
+  optional double s_horizon = 2;
+  optional double s_resolution = 3;
+  optional double default_lane_width = 4;
+  optional double max_lateral_acceleration = 5;
+  optional double adc_edge_buffer = 6;
+  optional double adc_bound_buffer = 7;
+  optional double adc_buff_coeff = 8;
+  optional double obstacles_bound_lat_max = 9;
+  optional double passible_buff = 10;
+
+}
+
+message PathOptimizerConfig {
+  optional bool enabled = 1;
+  optional bool enable_multi_thread = 2;
+  optional PathOptimizerWeights defalut_weights = 3;
+  optional PathOptimizerWeights lane_change_weights = 4;
+}
+
+message PathDeciderConfig {
+  optional bool enabled = 1;
+  optional double lateral_ignore_buffer = 2;
+  optional double static_obstacle_buffer = 3;
+  optional double stop_distance = 4;
+  optional double short_path_length_threshold = 5;
+  optional double min_reference_line_remain_length =6;
+  optional double virtual_obstacle_stop_distance = 7;
+}
+
+message StGraphDeciderConfig {
+  optional bool enabled = 1;
+  optional double total_time = 3 [default = 8.0];
+  optional double boundary_buffer_l = 4 [default = 0.1];
+  optional double max_centric_acceleration_limit = 5 [default = 2.0];
+  optional double minimal_kappa = 6 [default = 0.00001];
+  optional double lowest_speed = 7 [default = 2.5];
+  optional double static_obs_nudge_speed_ratio = 8 [default = 1.0];
+  optional double dynamic_obs_nudge_speed_ratio = 9 [default = 1.0];
+  optional bool enable_nudge_slow_down = 10 [default = true];
+  optional bool enable_preview_speed_limit = 11 [default = false];
+  optional int32 preveiw_speed_limit_delta_s = 12 [default = 10];
+}
+
+message SpeedDeciderConfig {
+  optional bool enabled = 1;
+  optional double time_sample_resolution = 2 [default = 1.0];
+  optional double min_sample_time = 3 [default = 0.1];
+  optional double num_velocity_sample = 4 [default = 9.0];
+  optional double min_velocity_resolution = 5 [default = 1.0];
+  optional double lon_stop_distance_buffer = 6 [default = 5.0]; 
+  optional double lon_follow_distance_buffer = 7 [default = 1.0];
+  optional double lon_overtake_distance_buffer = 8 [default = 1.0];
+  optional double default_s_sample_buffer = 9 [default = 10.0];
+  optional double min_s_resolution = 10 [default = 1.0];
+  optional double dense_time_resolution = 11 [default = 0.1]; 
+  optional SpeedDeciderWeights default_weights = 15;
+  optional SpeedDeciderWeights has_obs_weights = 16;
+  optional SpeedDeciderWeights has_stop_decision_weights = 17;
+  optional SpeedDeciderWeights lane_change_prepare_weights = 22;
+  optional double max_start_dec_t = 18 [default = 4];
+  optional bool enable_speed_limit = 20 [default = false];
+  optional double lon_dist_cost_std = 21 [default = 0.5];
+}
+
+message SpeedOptimizerConfig {
+  optional bool enabled = 1;
+  optional SpeedOptimizerWeights default_weights = 2;
+}
+
+message PathOptimizerWeights {
+  optional double area = 1 [default = 1.0];
+  optional double l = 2 [default = 1.0];
+  optional double theta = 3 [default = 1.0];
+  optional double beta = 4 [default = 1.0];
+  optional double kappa = 5 [default = 1.0];
+  optional double dkappa = 6 [default = 1.0];
+  optional double target_l = 7 [default = 10000.0];
+  optional double target_theta = 8 [default = 10000.0];
+  optional double max_target_l_slack = 9 [default = 0.2];
+  optional double max_target_theta_slack = 10 [default = 0.17];
+}
+
+message SpeedDeciderWeights {
+  optional double guide_velocity = 1 [default = 33.0];
+  optional double accelerate = 3 [default = 3.0];
+  optional double jerk = 4 [default = 1.0];
+  optional double collision_dist = 5 [default = 1.0];
+  optional double follow_dist = 6;
+  optional double centripetal_acc = 7 [default = 1.0];
+
+}
+
+
+message SpeedOptimizerWeights {
+  optional double dds = 1 [default = 1.0];
+  optional double ddds = 2 [default = 1.0];
+  optional double a_c = 3 [default = 1.0];
+  optional double s_ref = 4 [default = 1.0];
+  optional double ds_ref = 5 [default = 1.0];
+  optional double dds_slack = 6 [default = 1.0];
+  optional double ddds_slack = 7 [default = 1.0];
+}

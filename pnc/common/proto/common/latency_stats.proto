@@ -1,0 +1,13 @@
+syntax = "proto2";
+
+package xju.pnc;
+
+message TaskStats {
+  optional string name = 1;
+  optional double time_ms = 2;
+}
+
+message LatencyStats {
+  optional double total_time_ms = 1;
+  repeated TaskStats task_stats = 2;
+}

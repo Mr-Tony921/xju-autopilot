@@ -1,0 +1,149 @@
+scenario_type: EMERGENCY_PULL_OVER
+emergency_pull_over_config: {
+  target_slow_down_speed: 8.0
+  stop_distance: 1.5
+}
+
+stage_type: EMERGENCY_PULL_OVER_LANE_CHANGE
+stage_type: EMERGENCY_PULL_OVER_SLOW_DOWN
+stage_type: EMERGENCY_PULL_OVER_APPROACH
+stage_type: EMERGENCY_PULL_OVER_STANDBY
+
+stage_config: {
+  stage_type: EMERGENCY_PULL_OVER_LANE_CHANGE
+  enabled: true
+  task_type: LATERAL_SHIFT_DECIDER
+  task_type: PATH_BOUND_DECIDER
+  task_type: PATH_OPTIMIZER
+  task_type: PATH_DECIDER
+  task_type: ST_GRAPH_DECIDER
+  task_type: SPEED_DECIDER
+  task_type: SPEED_OPTIMIZER
+
+  task_config: {
+    task_type: LATERAL_SHIFT_DECIDER
+  }
+  task_config: {
+    task_type: PATH_BOUND_DECIDER
+  }
+  task_config: {
+    task_type: PATH_OPTIMIZER
+  }
+  task_config: {
+    task_type: PATH_DECIDER
+  }
+  task_config: {
+    task_type: ST_GRAPH_DECIDER
+  }
+  task_config: {
+    task_type: SPEED_DECIDER
+  }
+  task_config: {
+    task_type: SPEED_OPTIMIZER
+  }
+}
+
+stage_config: {
+  stage_type: EMERGENCY_PULL_OVER_SLOW_DOWN
+  enabled: true
+  task_type: LATERAL_SHIFT_DECIDER
+  task_type: PATH_BOUND_DECIDER
+  task_type: PATH_OPTIMIZER
+  task_type: PATH_DECIDER
+  task_type: ST_GRAPH_DECIDER
+  task_type: SPEED_DECIDER
+  task_type: SPEED_OPTIMIZER
+
+  task_config: {
+    task_type: LATERAL_SHIFT_DECIDER
+  }
+  task_config: {
+    task_type: PATH_BOUND_DECIDER
+  }
+  task_config: {
+    task_type: PATH_OPTIMIZER
+  }
+  task_config: {
+    task_type: PATH_DECIDER
+  }
+  task_config: {
+    task_type: ST_GRAPH_DECIDER
+  }
+  task_config: {
+    task_type: SPEED_DECIDER
+  }
+  task_config: {
+    task_type: SPEED_OPTIMIZER
+  }
+}
+
+stage_config: {
+  stage_type: EMERGENCY_PULL_OVER_APPROACH
+  enabled: true
+  task_type: LATERAL_SHIFT_DECIDER
+  task_type: PATH_BOUND_DECIDER
+  task_type: PATH_OPTIMIZER
+  task_type: PATH_DECIDER
+  task_type: ST_GRAPH_DECIDER
+  task_type: SPEED_DECIDER
+  task_type: SPEED_OPTIMIZER
+
+  task_config: {
+    task_type: LATERAL_SHIFT_DECIDER
+    lateral_shift_decider_config {
+      enabled: false
+    }
+  }
+  task_config: {
+    task_type: PATH_BOUND_DECIDER
+  }
+  task_config: {
+    task_type: PATH_OPTIMIZER
+  }
+  task_config: {
+    task_type: PATH_DECIDER
+  }
+  task_config: {
+    task_type: ST_GRAPH_DECIDER
+  }
+  task_config: {
+    task_type: SPEED_DECIDER
+  }
+  task_config: {
+    task_type: SPEED_OPTIMIZER
+  }
+}
+
+stage_config: {
+  stage_type: EMERGENCY_PULL_OVER_STANDBY
+  enabled: true
+  task_type: LATERAL_SHIFT_DECIDER
+  task_type: PATH_BOUND_DECIDER
+  task_type: PATH_OPTIMIZER
+  task_type: PATH_DECIDER
+  task_type: ST_GRAPH_DECIDER
+  task_type: SPEED_DECIDER
+  task_type: SPEED_OPTIMIZER
+
+  task_config: {
+    task_type: LATERAL_SHIFT_DECIDER
+  }
+  task_config: {
+    task_type: PATH_BOUND_DECIDER
+  }
+  task_config: {
+    task_type: PATH_OPTIMIZER
+  }
+  task_config: {
+    task_type: PATH_DECIDER
+  }
+  task_config: {
+    task_type: ST_GRAPH_DECIDER
+  }
+  task_config: {
+    task_type: SPEED_DECIDER
+  }
+  task_config: {
+    task_type: SPEED_OPTIMIZER
+  }
+}

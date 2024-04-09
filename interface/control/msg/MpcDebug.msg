@@ -1,0 +1,32 @@
+common_msgs/TrajectoryPoint[] mpc_predicted_trajectory
+float64[] matrix_q_updated
+float64[] matrix_r_updated
+float64[] matrix_state
+common_msgs/TrajectoryPoint[] mpc_resample_trajectory
+common_msgs/TrajectoryPoint matched_point
+float64 calculated_cost_time
+float64 acceleration
+float64 steering
+float64 jerk 
+float64 steer_angle_rate 
+float64 mpc_x_error_average
+float64 mpc_y_error_average
+float64 mpc_v_error_average
+float64 mpc_phi_error_average
+float64 iteration_number
+float64 solve_status
+float64 cost_time
+
+float64 state_cost_precept
+float64 control_cost_precept
+float64 control_rate_cost_precept
+float64 cost_of_state_x
+float64 cost_of_state_y
+float64 cost_of_state_v
+float64 cost_of_state_phi
+
+float64 test_1
+float64 test_2
+float64 test_3
+float64 test_4
+float64 test_5

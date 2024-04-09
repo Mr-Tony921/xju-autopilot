@@ -1,0 +1,7 @@
+# RestrictedLaneType
+uint8 RESTRICTED_LANE_TYPE_NONE   = 0 # 无
+uint8 RESTRICTED_LANE_TYPE_TIDAL  = 1 # 潮汐车道
+uint8 RESTRICTED_LANE_TYPE_BRT    = 2 # 公交专用道
+uint8 RESTRICTED_LANE_TYPE_HOV    = 3 # HOV车道
+uint8 RESTRICTED_LANE_TYPE_TAXI   = 4 # 出租车专用道
+uint8 RESTRICTED_LANE_TYPE_OTHER  = 5 # 其他车道

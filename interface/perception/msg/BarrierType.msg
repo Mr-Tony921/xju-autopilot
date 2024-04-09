@@ -1,0 +1,7 @@
+uint8 BR_OTHER = 0
+uint8 BR_CONE = 1
+uint8 BR_WATER_FILLED_BARRIER = 2
+uint8 BR_ANTI_COLLISION_BUCKET = 3
+uint8 BR_UNKNOWN = 5
+
+uint8 barrier_type

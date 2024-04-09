@@ -1,0 +1,28 @@
+syntax = "proto2";
+
+package xju.pnc;
+
+import "header.proto";
+import "pnc_point.proto";
+import "localization_pose.proto";
+import "perception_obstacle.proto";
+import "error_code.proto";
+
+message PredictionTrajectory {
+  optional double probability = 1;
+  optional pnc.Trajectory trajectory = 2;
+}
+
+message PredictionObstacle {
+  optional PerceptionObstacle perception_obstacle = 1;
+  repeated PredictionTrajectory prediction_trajectory = 2;
+  optional bool is_static = 3;
+  optional bool is_caution = 4;
+}
+
+message PredictionObstacles {
+  optional Header header = 1;
+  optional LocalizationPose localization_pose = 2;
+  repeated PredictionObstacle prediction_obstacle = 3;
+  optional ErrorCode error_code = 4;
+}

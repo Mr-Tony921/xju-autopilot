@@ -1,0 +1,1 @@
+int64   net_manager_pdu             # 网络管理pdu大小

@@ -1,0 +1,86 @@
+cmake_minimum_required(VERSION 3.5)
+
+project(pnc_common)
+
+add_subdirectory(proto)
+
+find_package(Protobuf REQUIRED)
+find_package(gflags REQUIRED)
+find_package(glog REQUIRED)
+find_package(Eigen3 REQUIRED)
+find_package(Boost REQUIRED)
+find_package(osqp REQUIRED)
+find_package(absl REQUIRED)
+
+set(proto_gen_folder ${CMAKE_CURRENT_LIST_DIR}/../build-special/proto)
+
+file(GLOB PNC_COMMON_FILES
+     */*.c
+     */*.cc
+     */*/*.cc
+     */*/*/*.cc
+     */*/*/*/*.cc
+     ${proto_gen_folder}/*.pb.cc)
+
+LIST(FILTER PLANNING_FILES EXCLUDE REGEX ".+_test[.]+h")  #remove *_test.h
+LIST(FILTER PLANNING_FILES EXCLUDE REGEX ".+_test[.]+cc") #remove *_test.cc
+
+include_directories(
+    ${CMAKE_CURRENT_LIST_DIR}/../
+    ${proto_gen_folder})
+
+
+include_directories(${Boost_INCLUDE_DIRS})
+
+# add_library(${PROJECT_NAME} STATIC
+#             ${PNC_COMMON_FILES})
+
+# target_link_libraries(${PROJECT_NAME} gflags
+#                       glog::glog
+#                       Eigen3::Eigen
+#                       ${Boost_LIBRARIES}
+#                       osqp::osqp
+#                       ${PROTOBUF_LIBRARIES}
+#                       hpipm
+#                       blasfeo
+#                       absl::strings)
+
+# set(lib_file ${CMAKE_CURRENT_LIST_DIR}/../build-special/lib)
+# install(TARGETS ${PROJECT_NAME} DESTINATION ${lib_file})
+
+# # install configs
+# set(PNC_COMMON_CONFIGS_SAVED_FOLDER ${CMAKE_CURRENT_LIST_DIR}/../output)
+# install(DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/../configs/common DESTINATION ${PNC_COMMON_CONFIGS_SAVED_FOLDER}/configs)
+
+
+# install to default directory using colcon
+# install(TARGETS ${PROJECT_NAME} 
+#         DESTINATION
+#         ARCHIVE DESTINATION lib/${PROJECT_NAME}
+#         LIBRARY DESTINATION lib/${PROJECT_NAME}
+#         RUNTIME DESTINATION lib/${PROJECT_NAME})
+
+# find_package(GTest REQUIRED)
+# add_executable(common_test 
+#               #  math/box2d_test.cc 
+#               #  math/polygon2d_test.cc
+#               #  vehicle_state/vehicle_state_provider_test.cc
+#               #  math/curve_math_test.cc
+#               #  filter/filter_test.cc
+#               #  math/linear_interpolation_test.cc
+#               #  math/line_segments_test.cc
+#               #  third_party/hpipm_cpp/hpipm_cpp_test.cc
+#                ${PNC_COMMON_FILES})
+# target_link_libraries(common_test 
+#                       gflags
+#                       glog::glog
+#                       Eigen3::Eigen
+#                       ${Boost_LIBRARIES}
+#                       osqp::osqp
+#                       ${PROTOBUF_LIBRARIES}
+#                       GTest::GTest
+#                       GTest::Main
+#                       ${GTEST_MAIN_LIBRARIES}
+#                       hpipm
+#                       blasfeo
+#                       absl::strings)

@@ -1,0 +1,134 @@
+syntax = "proto2";
+
+package xju.pnc;
+
+import "header.proto";
+import "vehicle_signal.proto";
+
+message Chassis {
+  optional Header header = 1;
+  optional bool started = 2;
+  optional double speed_ms = 3;
+  optional double acceleration = 4;
+
+  optional double throttle_percentage = 5;
+  optional double brake_percentage = 6;
+  optional double steering_percentage = 7;
+  optional double steering_angle = 9;
+  optional double steering_torque_nm = 10;
+
+  // motor speed in RPM
+  optional double motor_rpm = 11;
+  optional double motor_torque_nm = 12;
+
+  optional GearPosition gear_position = 13;
+  optional DrivingMode driving_mode = 14;
+  optional bool parking_brake = 15;
+
+  // Light signals
+  optional bool high_beam_signal = 16;
+  optional bool low_beam_signal = 17;
+  optional bool left_turn_signal = 18;
+  optional bool right_turn_signal = 19;
+  optional bool horn = 20;
+  optional bool wiper = 21;
+  optional double mass = 22;
+  optional double slope = 23;
+}
+
+message BrakeInfo {
+  enum EpbStatus {
+    EPB_UNKNOWN = 0;
+    RELEASE = 1;
+    APPLY = 2;
+    APPLYING = 3;
+    RELEASING = 4;
+  };
+
+  optional Header header = 1;
+  optional double deceleration_command = 2;
+  optional double deceleration_actual = 3;
+
+  optional double pedal_command = 4;
+  optional double pedal_actual = 5;
+
+  optional bool ebs_override = 6;
+  optional bool epb_override = 7;
+
+  optional bool ebs_fault = 8;
+  optional bool epb_fault = 9;
+
+  optional EpbStatus epb_status = 10;
+}
+
+message GearBoxInfo {
+  optional Header header = 1;
+
+  optional GearPosition gearbox_command = 2;
+  optional GearPosition gearbox_actual = 3;
+
+  optional bool gearbox_fault = 4;
+}
+
+message SteerInfo {
+  optional Header header = 1;
+  optional bool steer_angle_isvalid = 2;
+
+  optional double steer_angle_command = 3;
+  optional double steer_angle_actual = 4;
+
+  optional bool steer_angle_speed_isvalid = 5;
+
+  // unit rad/s
+  optional double steer_angle_speed = 6;
+
+  // unit Nm
+  optional double steer_torque = 7;
+ 
+  optional bool steer_override = 8;
+  optional bool steer_fault = 9;
+}
+
+message ThrottleInfo {
+  optional Header header = 1;
+  // throttle pedal percentage 0 ~ 100.0
+  optional double pedal_output = 2;        
+  optional double pedal_command = 3;
+
+  optional bool motor_torque_vaild = 4;
+  // unit Nm
+  optional double motor_torque_command = 5;
+  optional double motor_torque_actual = 6;
+
+  optional bool throttle_override = 7;
+  optional bool throttle_fault = 8;
+
+  // unit rpm
+  optional double motor_speed = 9;
+  optional double veh_max_drv_tq = 10;
+  optional double veh_max_rgn_tq = 11;
+}
+
+message CarSpeedInfo {
+  optional Header header = 1;
+  optional bool isvalid = 2;
+
+  // unit m/s
+  optional double speed = 3;
+  optional double acceleration = 4;
+  optional pnc.Direction direction = 5;
+}
+
+message CarMassInfo {
+  optional Header header = 1;
+  optional double vehicle_mass = 2;
+}
+
+message ChassisInfo {
+  optional BrakeInfo brake_info = 1;
+  optional GearBoxInfo gear_info = 2;
+  optional SteerInfo steer_info = 3;
+  optional ThrottleInfo throttle_info = 4;
+  optional CarSpeedInfo car_speed_info = 5;
+  optional CarMassInfo car_mass_info = 6;
+}

@@ -1,0 +1,71 @@
+syntax = "proto2";
+
+package xju.pnc;
+
+import "pnc_point.proto";
+
+message PerceptionObstacle {
+  optional int32 id = 1;
+  optional Point3D position = 2;
+  optional double heading = 3;
+  optional Point3D velocity = 4;
+  optional Point3D acceleration = 5;
+  optional double length = 6;
+  optional double width = 7;
+  optional double height = 8;
+  repeated Point3D polygon_point = 9;
+
+  enum Type {
+    UNKNOWN = 0;
+    UNKNOWN_MOVABLE = 1;
+    UNKNOWN_UNMOVABLE = 2;
+    PEDESTRIAN = 3; 
+    BICYCLE = 4; 
+    VEHICLE = 5; 
+  };
+  optional Type type = 10;
+  enum SubType {
+    ST_UNKNOWN = 0;
+    ST_UNKNOWN_MOVABLE = 1;
+    ST_UNKNOWN_UNMOVABLE = 2;
+    ST_CAR = 3;
+    ST_VAN = 4;
+    ST_TRUCK = 5;
+    ST_BUS = 6;
+    ST_CYCLIST = 7;
+    ST_MOTORCYCLIST = 8;
+    ST_TRICYCLIST = 9;
+    ST_PEDESTRIAN = 10;
+    ST_TRAFFICCONE = 11;
+
+    ST_CAT = 12;
+    ST_DOG = 13;
+
+    // barriers
+    ST_TRAFFICCONE_DOWN = 14;          
+    ST_SAFETY_TRIANGLE = 15;           
+    ST_SECURITY_ARM_BARRIER = 16;
+
+    ST_VEGETATION = 17;
+    ST_FENCE = 18;
+
+    ST_BARRIER_CONE = 19;              
+    ST_BARRIER_DELINEATOR = 20;        
+    ST_BARRIER_WATER = 21;             
+    ST_BARRIER_BUCKET = 22;            
+    ST_BARRIER_CEMENT = 23;            
+    ST_BARRIER_STONE = 24;             
+    ST_BARRIER_NO_PARKING_SIGN = 25;   
+    ST_BARRIER_TEMPORARY_SIGN = 26;    
+    ST_BARRIER_TRIANGLE = 27;          
+    ST_BARRIER_WHEEL_STOPPER = 28;     
+    ST_BARRIER_PARKING_LOCK = 29;      
+
+    ST_VAN_MICRO = 30;
+    ST_VAN_MEDIUM = 31;
+  };
+  optional SubType sub_type = 11;
+  optional double height_above_ground = 12 [default = 0];
+
+  repeated uint32 lane_ids = 13;
+}
