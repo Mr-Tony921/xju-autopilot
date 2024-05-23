@@ -35,7 +35,7 @@ rviz2
 ```bash
 # Basic example of how to build and run
 colcon build
-./src/pnc/script/simulation.sh -p
+./src/pnc/script/simulation.sh
 ```
 
 ## License
